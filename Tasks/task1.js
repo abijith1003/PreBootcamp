@@ -7,12 +7,12 @@ var myvar = 1;
 console.log(myvar);
 
 //3.Declare variables to store your first name, last name, marital status, country and age in multiple lines
-var firstname = prompt("enter the first name","First Name");
-var secondname = prompt("enter the second name","Second Name");
-var lastname = prompt("enter the last name","Last Name");
-var martialstatus = prompt("enter the martialstatus ", "Martial Status");
-var country = prompt("enter the country name","Country Name");
-var age = prompt("enter the age","Age");
+var firstname;
+var secondname;
+var lastname;
+var martialstatus;
+var country;
+var age;
 
 //4. Declare variables to store your first name, last name, marital status, country and age in a single line
 var firstname,secondname,lastname,martialstatus,country,age;
