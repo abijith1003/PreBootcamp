@@ -203,3 +203,40 @@ for (var i = 0; i < input.length; i++) {
 }
 }
 dataHandling(input);
+
+//__________Objects:____________
+/*
+What the output
+*/
+myobject = {1:one,"11":1,"name":"arun"}
+console.log(myobject[11]); 
+console.log(myobject.name);
+//Changed the above code for getting output without error
+//Output
+1
+arun 
+
+/*Add a new key value pair to myobject
+key : ten
+value : ten
+*/
+myobject = {1:one,"11":1,"name":"arun"}
+//your code goes here
+myobject.ten = "ten";
+console.log(myobject);
+{"1":"one","11":1,"name":"arun","ten":"ten"}; // Quotes might not get displayed that fine
+
+/*
+Write out an object literal to represent the data below.
+Guvi, Geek, 6, IIT-M RP,Chennai
+*/
+var Obj = {"Guvi" : ["Guvi", "Geek", 6, "IIT-M RP","Chennai"]};
+
+//How would you represent the following data using a combination of object literals and arrays?
+
+var thisObject = {
+    "Guvi" : ["Guvi", "Geek", 6, "IIT-M RP", "Chennai"], 
+    "Amazon" : ["Amazon", "Inc", 31, "SP Infocity", "Chennai"],
+    "Google": ["Google", "Alphabet", 34, "Amphitheater Parkway", "MountainView"],
+    "Tesla" : ["Tesla", "Inc", 32, "333 Santana Row", "San Jose"]
+}
