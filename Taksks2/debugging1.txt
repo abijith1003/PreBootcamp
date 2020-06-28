@@ -1,0 +1,585 @@
+GUVI: Zen Class — Part 1: Find the culprits and nail them — debugging javascript
+--------------------------------------------------------------------------------
+
+Q1.Find the culprit
+fix.html
+<!DOCTYPE html>
+<html>
+<body>
+ <script>
+ alert( “I’m JavaScript!’);
+ </script>
+ Whats the error in this ?
+</body>
+</html>
+
+Solution:
+<!DOCTYPE html>
+<html>
+<body>
+ <script>
+ alert( "I’m JavaScript!");
+ </script>
+ Whats the error in this ?
+</body>
+</html>
+________________________________________________________________________________________________
+
+Q2.Find the culprit and invoke the alert
+fix.html
+<!DOCTYPE html>
+<html>
+<body>
+ <script src=”script.js”></script>
+</body>
+</html>
+
+scripts.js
+
+alert(“I’m invoked!”);
+
+Solution:
+<!DOCTYPE html>
+<html>
+<body>
+ <script src="script.js"></script>
+</body>
+</html>
+
+script.js
+
+alert(“I’m invoked!”);
+________________________________________________________________________________________________
+
+Q3.Explain the below how it works
+explain.html
+<!DOCTYPE html>
+<html>
+<body>
+ <script src=”script.js”></script>
+</body>
+</html>
+
+script.js
+
+alert("I'm JavaScript!");
+alert('Hello') // this line is not having semicolon
+alert(`Wor
+ ld`)
+alert(3 +
+1
++ 2); // this is multiple line code and its working
+
+Solution:
+/*semicolon is not necessary after version ES6 because of the feature called Automatic Semicolon Insertion (ASI).
+Backtick  ` `  is used for multiple line strings or when we want to interpolate an expression within the string.
+Multiple line code will work in js because of smart ASI (Automatic Semicolon Insertion) feature which identifies -
+the statement and will not insert semicolon in between the statement as semicolon clarifies as the end of the line.
+*/
+________________________________________________________________________________________________
+
+Q4.fix the below to alert Guvi geek
+fix.html
+
+<!DOCTYPE html>
+<html>
+<body>
+ <script src=”script.js”></script>
+</body>
+</html>
+
+script.js
+
+let admin=9, fname=10.5; 
+fname = "Guvi";
+lname = "geek"
+admin = fname+lname;
+alert( admin )
+
+Solution:
+<!DOCTYPE html>
+<html>
+<body>
+ <script src="script.js"></script>
+</body>
+</html>
+
+script.js
+
+let admin=9, fname=10.5; 
+fname = "Guvi";
+lname = "geek"
+admin = fname+" "+lname;
+alert(admin);
+________________________________________________________________________________________________
+
+Q5.Fix the below to alert hello Guvi geek
+fix.html
+<!DOCTYPE html>
+<html>
+<body>
+ <script src=”script.js”></script>
+</body>
+</html>
+script.js
+let fname=10.5; 
+fname = "Guvi";
+lname = "geek"
+let name = fname+lname;
+alert( 'hello ${name}' );
+
+Solution:
+<!DOCTYPE html>
+<html>
+<body>
+ <script src="script.js"></script>
+</body>
+</html>
+
+script.js
+
+let fname=10.5; 
+fname = "Guvi";
+lname = "geek"
+let name = fname+lname;
+alert( `hello ${name}` );
+________________________________________________________________________________________________
+
+Q6.Fix the below to alert sum of two numbers
+fix.html
+<!DOCTYPE html>
+<html>
+<body>
+ <script src=”script.js”></script>
+</body>
+</html>
+script.js
+let a = prompt("First number?");
+let b = prompt("Second number?");
+alert(a + b);
+
+Solution:
+<!DOCTYPE html>
+<html>
+<body>
+ <script src=”script.js”></script>
+</body>
+</html>
+
+script.js
+
+let a = prompt("First number?");
+let b = prompt("Second number?");
+alert(parseInt(a) + parseInt(b));
+________________________________________________________________________________________________
+
+Q7.If you run the below scritpt you will get “Code is Blasted”
+Explain Why the Code is blasted and how to diffuse it and get “Diffused”.
+fix.html
+<!DOCTYPE html>
+<html>
+<body>
+ <script src=”script.js”></script>
+</body>
+</html>
+script.js
+var a = "2" > "12";
+//Don't touch below this
+if (a) {
+  console.log("Code is Blasted")
+}
+else
+{
+  console.log("Diffused") 
+}
+
+Solution:
+<!DOCTYPE html>
+<html>
+<body>
+ <script src=”script.js”></script>
+</body>
+</html>
+
+script.js
+
+var a = "2" > "12"; // here a is always true so the if condition always become true
+//Don't touch below this
+if (a) {
+  console.log("Code is Blasted")
+}
+else
+{
+  console.log("Diffused") // to get Diffused the if condition should get false
+}
+// we can imply if(a==false) then we get "Diffused"
+________________________________________________________________________________________________
+
+Q8.How to get the success in console.
+fix.html
+<!DOCTYPE html>
+<html>
+<body>
+ <script src=”script.js”></script>
+</body>
+</html>
+script.js
+let a = prompt("Enter a number?");
+//Don't modify any code below this
+if (a) {
+ console.log( 'OMG it works for any number inc 0' );
+}
+else
+{
+ console.log( "Success" );
+}
+
+Solution:
+<!DOCTYPE html>
+<html>
+<body>
+ <script src=”script.js”></script>
+</body>
+</html>
+
+script.js
+
+let a;
+//Don't modify any code below this
+if (a) {
+ console.log( 'OMG it works for any number inc 0' );
+}
+else
+{
+ console.log( "Success" );
+}
+________________________________________________________________________________________________
+
+Q9.How to get the correct score in console.
+fix.html
+<!DOCTYPE html>
+<html>
+<body>
+ <script src=”script.js”></script>
+</body>
+</html>
+script.js
+let value = prompt('How many runs you scored in this ball');
+if (value === 4) {
+      console.log("You hit a Four");
+} else if (value === 6) {
+      console.log("You hit a Six");
+} else {
+      console.log("I couldn't figure out");
+}
+
+Solution:
+let value = prompt('How many runs you scored in this ball');
+if (value == 4) {
+      console.log("You hit a Four");
+} else if (value == 6) {
+      console.log("You hit a Six");
+} else {
+          console.log("I couldn't figure out");
+
+}
+________________________________________________________________________________________________
+
+Q10.Fix the code to welcome the Employee
+fix.html
+<!DOCTYPE html>
+<html>
+<body>
+ <script src=”script.js”></script>
+</body>
+</html>
+script.js
+let login = 'Employee';
+let message = (login == 'Employee') ? :
+  (login == 'Director') ? 'Greetings' :
+  (login == '') ? 'No login' :
+  '';
+console.log(message)
+
+Solution:
+<!DOCTYPE html>
+<html>
+<body>
+ <script src=”script.js”></script>
+</body>
+</html>
+
+script.js
+
+login = 'Employee';
+let message = (login == 'Employee') ? "Welcome" :
+  (login == 'Director') ? 'Greetings' :
+  (login == '') ? 'No login' :
+  '';
+console.log(message);
+________________________________________________________________________________________________
+
+Q11.Fix the code to welcome the boss
+fix.html
+<!DOCTYPE html>
+<html>
+<body>
+ <script src=”script.js”></script>
+</body>
+</html>
+script.js
+// You cant change the value of the msg
+let message;
+if (null || 2 || undefined )
+{
+ let message = "welcome boss";
+}
+else
+{
+ let message = "Go away";
+}
+console.log(message);
+
+Solution:
+script.js
+// You cant change the value of the msg
+let message;
+if (null || 2 || undefined )
+{
+ message = "welcome boss";
+}
+else
+{
+ message = "Go away";
+}
+console.log(message);
+________________________________________________________________________________________________
+
+Q12.Fix the code to welcome the boss
+fix.html
+<!DOCTYPE html>
+<html>
+<body>
+ <script src=”script.js”></script>
+</body>
+</html>
+script.js
+let message;
+let lock = 2;
+//Dont change any code below this 
+if (null || lock || undefined )
+{
+  message = "Go away";
+}
+else
+{
+ message = "welcome";
+}
+  console.log(message)
+
+Solution:
+let message;
+let lock = 0;
+//Dont change any code below this 
+if (null || lock || undefined )
+{
+  message = "Go away";
+}
+else
+{
+ message = "welcome";
+}
+  console.log(message);
+________________________________________________________________________________________________
+
+Q13.Fix the code to welcome the boss
+fix.html
+<!DOCTYPE html>
+<html>
+<body>
+ <script src=”script.js”></script>
+</body>
+</html>
+script.js
+let message;
+let lock = 2;
+//Dont change any code below this
+if (lock && " " || undefined )
+{
+  message = "Go away";
+}
+else
+{
+ message = "welcome";
+}
+console.log(message);
+
+Solution:
+let message;
+let lock = 0;
+//Dont change any code below this
+if (lock && " " || undefined )
+{
+  message = "Go away";
+}
+else
+{
+ message = "welcome";
+}
+console.log(message);
+________________________________________________________________________________________________
+
+Q14.Change the code to print
+3
+2
+1
+fix.html
+<!DOCTYPE html>
+<html>
+<body>
+ <script src=”script.js”></script>
+</body>
+</html>
+script.js
+//You can change only 2 characters
+let i = 3;
+while (i) {
+  console.log( --i );
+}
+
+Solution:
+//You can change only 2 characters
+let i = 3;
+while (i) {
+  console.log( i-- );
+}
+________________________________________________________________________________________________
+
+Q15.Change the code to print 1 to 10 in 4 lines
+fix.html
+<!DOCTYPE html>
+<html>
+<body>
+ <script src=”script.js”></script>
+</body>
+</html>
+script.js
+let num = 1
+console.log(num)
+num += 1
+console.log(num)
+num += 1
+console.log(num)
+num += 1
+console.log(num)
+num += 1
+console.log(num)
+num += 1
+console.log(num)
+num += 1
+console.log(num)
+num += 1
+console.log(num)
+num += 1
+console.log(num)
+num += 1
+console.log(num)
+
+Solution:
+let num = 1;
+while(num<=10){
+    console.log(num);
+    num++;
+}
+________________________________________________________________________________________________
+
+Q16.Change the code to print even numbers
+fix.html
+<!DOCTYPE html>
+<html>
+<body>
+ <script src=”script.js”></script>
+</body>
+</html>
+script.js
+//You are allowed to modify only one character 
+for (let num = 2; num <= 20; num += 1) {
+  console.log(num)
+}
+
+Solution:
+//You are allowed to modify only one character 
+for (let num = 2; num <= 20; num += 2) {
+  console.log(num);
+}
+________________________________________________________________________________________________
+
+Q17.Change the code to print all the gifts
+fix.html
+<!DOCTYPE html>
+<html>
+<body>
+ <script src=”script.js”></script>
+</body>
+</html>
+script.js
+let gifts = ["teddy bear", "drone", "doll"];
+for (let i = 0; i < 3; i++) {
+  console.log('Wrapped ${'gifts[i]'} and added a bow!');
+}
+
+Solution:
+let gifts = ["teddy bear", "drone", "doll"];
+for (let i = 0; i < 3; i++) {
+  console.log(gifts[i]);
+}
+________________________________________________________________________________________________
+
+Q18.Fix the code to disarm the bomb.
+fix.html
+<!DOCTYPE html>
+<html>
+<body>
+ <script src=”script.js”></script>
+</body>
+</html>
+script.js
+let countdown = 100;
+while (countdown > 0) {
+  countdown--;
+  if(countdown == 0)
+  {
+   console.log("bomb triggered");
+  }
+}
+
+Solution:
+let countdown = 100;
+while (countdown > 0) {
+  
+  if(countdown == 0)
+  {
+   console.log("bomb triggered");
+  }
+  countdown--;
+
+}
+________________________________________________________________________________________________
+
+Q19.Whats the msg printed and why?
+var lemein = “0”;
+var lemeout = 0;
+var msg = “”;
+if (lemein) {
+ msg += “hi”;
+ }
+if (lemeout) {
+ msg += ‘Hello’;
+}
+console.log(msg);
+
+Solution:
+/*Message "hi" is printed because, string "0" is considered as true and number 0 is considered
+ as false.
+ Here lemein is string "0" and considered as true in if statement. so msg is updated to "hi".*/
+________________________________________________________________________________________________
