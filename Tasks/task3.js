@@ -196,8 +196,10 @@ var input = [
 ]
 function dataHandling(input){
 for (var i = 0; i < input.length; i++) {
-//Your code goes here
-console.log(input[i]);
+    //Your code goes here
+    for(var j=0; j<input[i].length; j++){
+        console.log(input[i][j]);
+    }
 }
 }
 dataHandling(input);
