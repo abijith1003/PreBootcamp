@@ -32,4 +32,10 @@ var string = "123456";
 console.log(parseInt(string));
 
 //7. Write 6 statement which provide truthy & falsey values.
-
+function truefalse (val) {
+    if (val==true) {
+        console.log("Truthy!");
+    } else {
+        console.log("Falsy.");
+    }
+}
